@@ -6,14 +6,14 @@ rem 在vs中自己会找到准确的cl.exe版本，不需要特别指定
 set clcmd=cl.exe
 
 rem 如果module中引用了标准库，需要指定/module:stdIfcDir
-rem /experimental:module /module:stdIfcDir "$(VCToolsInstallDir_160)ifc\$(PlatformTarget)"
-rem $(VCToolsInstallDir_160)=D:\install\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\
-rem $(PlatformTarget)=x64
+/experimental:module /module:stdIfcDir "$(VCToolsInstallDir_160)ifc\$(PlatformTarget)"
+$(VCToolsInstallDir_160)=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\
+$(PlatformTarget)=x64
 set target=%1%
 if "%target%"=="" set target=x64
 @echo %target%
 rem 根据自己的实际目录设置
-set stdIfcDir="D:\install\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\ifc\%target%"
+set stdIfcDir="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\ifc\%target%"
 
 rem 指定代码生成的运行库md mdd mt mtd(动态库 动态调试库 静态库 静态调试库)
 rem 本bat的第一个参数指定是否是debug版本，如果是debug版本，第一个参数是 d
